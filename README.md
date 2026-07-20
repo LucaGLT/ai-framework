@@ -36,10 +36,10 @@ Specifica completa: [`_RAW/ai-framework-guide_1.0.md`](_RAW/ai-framework-guide_1
 
 | Fase | Contenuto | Stato |
 |------|-----------|-------|
-| 0 | Fondamenta: core + modules design/coding | In corso |
-| 1 | Template, agents, validators, parameters unificato | Pianificata |
+| 0 | Fondamenta: core + modules design/coding | Completata |
+| 1 | Template, agents, validators, parameters unificato | Completata |
 | 2 | Adattatori Cursor + Copilot | Pianificata |
-| 3 | Modulo test | Pianificata |
+| 3 | Modulo test (prompt operativi) | Pianificata |
 
 ## Quickstart (progetto target)
 
