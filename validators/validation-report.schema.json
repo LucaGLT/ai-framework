@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "validation-report.schema.json",
+  "title": "ValidationReport",
+  "type": "object",
+  "required": [
+    "task_id",
+    "overall_score",
+    "threshold",
+    "passed",
+    "scores"
+  ],
+  "properties": {
+    "task_id": { "type": "string" },
+    "area": { "type": "string" },
+    "module": { "type": "string" },
+    "linked_requirements": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^REQ-[0-9]{4}$" }
+    },
+    "overall_score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "threshold": { "type": "number" },
+    "passed": { "type": "boolean" },
+    "validation_gate_enabled": { "type": "boolean" },
+    "scores": {
+      "type": "object",
+      "additionalProperties": { "type": "number" }
+    },
+    "blocking_issues": { "type": "array", "items": { "type": "string" } },
+    "non_blocking_issues": { "type": "array", "items": { "type": "string" } },
+    "fix_plan": { "type": "array", "items": { "type": "string" } },
+    "evidence": { "type": "object" },
+    "final_recommendation": { "type": "string" }
+  }
+}

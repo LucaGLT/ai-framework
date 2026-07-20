@@ -1,0 +1,42 @@
+# Validation Rubric
+
+# Gate disabled by default in v1 (VALIDATION_GATE_ENABLED=false).
+# Enable on target project after pilot (Phase 2 of meta-framework rollout).
+
+thresholds:
+  minimum_pass_score: 85       # override via {{VALIDATION_THRESHOLD}}
+  critical_blocker_score_cap: 70
+  gate_enabled_default: false  # set VALIDATION_GATE_ENABLED in PROJECT_PARAMETERS
+
+weights:
+  requirement_coverage: 20
+  correctness: 20
+  maintainability: 15
+  test_coverage: 15
+  documentation_quality: 10
+  error_handling: 10
+  architectural_consistency: 5
+  security_privacy_impact: 3
+  regression_risk: 2
+
+blocking_conditions:
+  - missing_required_tests
+  - failing_tests
+  - undocumented_public_api
+  - requirement_not_implemented
+  - unsafe_data_handling
+  - breaking_change_not_declared
+  - req_missing_required_classification   # Type, MoSCoW, Priority
+
+scoring_policy:
+  100: "complete, tested, documented, minimal risk"
+  90: "minor non-blocking improvements possible"
+  85: "acceptable for completion"
+  70: "requires fixes before completion"
+  50: "incomplete implementation"
+  0: "not valid or not assessed"
+
+completion_rule: |
+  If VALIDATION_GATE_ENABLED is false, produce validation report for visibility
+  but do not block task completion on score alone.
+  If true, overall_score must be >= minimum_pass_score and no blocking_conditions.
