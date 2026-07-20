@@ -6,7 +6,7 @@ description: "Interview the Designer to collect project parameters, then instant
 # Setup Environment
 
 Prepare a new (or extend an existing) project environment by resolving every parameter defined
-in `specs/parameters.yml` and instantiating the reusable AI framework templates into the target
+in `specs/parameters.yml` (repository root) and instantiating the reusable AI framework templates into the target
 project's `.github/` folder.
 
 Follow `instructions/environment-setup.instructions.md` exactly for interview policy and
@@ -25,7 +25,7 @@ validation rules.
 
 ## Input Required (Interview)
 
-Ask questions grouped exactly as in `specs/parameters.yml`, in this order. For the full
+Ask questions grouped exactly as in `specs/parameters.yml` (repository root), in this order. For the full
 question wording, validation patterns and conditional (`depends_on`) rules, follow
 `instructions/environment-setup.instructions.md`.
 
@@ -70,7 +70,7 @@ parameter table, grouped by section, in human-readable Markdown form.
 ## Step 3 — Instantiate Core Framework
 
 Copy the following into the target project, substituting every registered parameter token
-(from `specs/parameters.yml`, derived tokens included) with its resolved value:
+(from `specs/parameters.yml` at repository root, derived tokens included) with its resolved value:
 
 - `copilot-instructions.template.md` → `.github/copilot-instructions.md` (strip the leading
   "TEMPLATE NOTE" comment block — it must not appear in the generated file)

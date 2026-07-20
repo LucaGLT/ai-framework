@@ -11,7 +11,7 @@ Parametric templates for **Code** pillar: setup, planning, review, documentation
 Machine-readable specs, instructions and prompts for module development. Uses placeholder tokens
 (`{{PROJECT_NAME}}`, etc.) resolved via interview into `PROJECT_PARAMETERS.md`.
 
-Registry: [`specs/parameters.yml`](specs/parameters.yml)
+Registry: [`../../specs/parameters.yml`](../../specs/parameters.yml) (canonical)
 
 ## Quickstart (target project)
 
@@ -24,7 +24,7 @@ Registry: [`specs/parameters.yml`](specs/parameters.yml)
 | Path | Content |
 |------|---------|
 | [`copilot-instructions.template.md`](copilot-instructions.template.md) | Workspace policy template |
-| [`specs/parameters.yml`](specs/parameters.yml) | Placeholder token registry |
+| [`../../specs/parameters.yml`](../../specs/parameters.yml) | Canonical placeholder token registry |
 | [`specs/plan-schema.yml`](specs/plan-schema.yml) | Schema for `PLAN.md` |
 | [`specs/review-plan-schema.yml`](specs/review-plan-schema.yml) | Schema for `REVIEW.md` |
 | [`specs/coding-style.yml`](specs/coding-style.yml) | Machine-readable coding rules |
@@ -51,5 +51,5 @@ when `{{HAS_GUI_MODULE}} = true`.
 ## Placeholder convention
 
 - Syntax: `{{TOKEN_NAME}}`
-- Documented in `specs/parameters.yml`
+- Documented in `specs/parameters.yml` (repository root)
 - Never leave unresolved tokens in instantiated files

@@ -1,0 +1,290 @@
+# specs/parameters.yml
+# Canonical registry of every placeholder token for the AI Framework.
+# Resolved at setup into PROJECT_PARAMETERS.md on the target project.
+#
+# Placeholder syntax: {{TOKEN_ID}}
+# Registry is NOT copied to target projects — only resolved values persist.
+
+---
+groups:
+
+  # ── Project (resolved by #project-setup) ───────────────────────────────────
+  - group: project
+    label: "Project Identity & Governance"
+    parameters:
+      - id: PROJECT_ID
+        required: true
+        description: "Free-form project identifier. URL-safe kebab-case recommended."
+        example: "iot-monitor"
+
+      - id: PROJECT_NAME
+        required: true
+        description: "Human-readable project or product name."
+        example: "IoT Monitor"
+
+      - id: PROJECT_DESCRIPTION
+        required: true
+        description: "Short description of the product."
+        example: "Industrial temperature and vibration monitoring"
+
+      - id: PROJECT_VERSION
+        required: false
+        default: "0.1.0"
+        description: "Project version (semver or letter)."
+
+      - id: PROJECT_LANGUAGE
+        required: false
+        default: "it"
+        description: "Language for ALL project artifacts — it or en, never mixed."
+        example: "it | en"
+
+      - id: CLIENT_NAME
+        required: false
+        default: "Internal"
+        description: "Client or customer name. Use Internal for personal projects."
+
+      - id: TEAM_OR_AUTHOR
+        required: false
+        default: "Development Team"
+        description: "Team or author for docs and changelogs."
+
+      - id: WORKFLOW_TYPE
+        required: false
+        default: "Agile"
+        description: "Delivery workflow."
+        example: "Agile | Waterfall | Hybrid | V-Model"
+
+      - id: REPOSITORY_URL
+        required: false
+        description: "Git remote URL (GitHub recommended)."
+        example: "git@github.com:org/repo.git"
+
+      - id: DEFAULT_BRANCH
+        required: false
+        default: "main"
+        description: "Default Git branch."
+
+      - id: CI_CD_TOOL
+        required: false
+        default: "GitHub Actions"
+        description: "CI/CD platform."
+        example: "GitHub Actions | GitLab CI | Jenkins"
+
+      - id: VALIDATION_THRESHOLD
+        required: false
+        default: "85"
+        description: "Minimum validation score to pass (when gate enabled)."
+
+      - id: VALIDATION_GATE_ENABLED
+        required: false
+        default: "false"
+        description: "If true, tasks require validation report above threshold."
+
+      - id: MILESTONE_LIST
+        required: false
+        default: ""
+        description: "Comma-separated milestone IDs from milestone-catalog.md or custom."
+
+  # ── Area & Module (resolved by #setup-environment) ─────────────────────────
+  - group: area_module
+    label: "Area & Module"
+    parameters:
+      - id: AREA_NAME
+        required: true
+        description: "Area of intervention (backend, embedded, system, …)."
+        example: "backend"
+
+      - id: MODULE_NAME
+        required: true
+        description: "Module name within the area."
+        example: "auth-service"
+
+      - id: MODULE_PURPOSE
+        required: true
+        description: "One-sentence purpose of the module."
+        example: "REST authentication service"
+
+      - id: MODULE_ROOT_PATH
+        required: false
+        default: "Code/{{AREA_NAME}}/{{MODULE_NAME}}/"
+        description: "Module root path on target project."
+
+      - id: HAS_DEDICATED_REPO
+        required: false
+        default: "false"
+        description: "If true, code lives in a separate Git repository."
+
+      - id: BUILD_SYSTEM
+        required: true
+        description: "Build system for the module."
+        example: "CMake | npm | Cargo | MSBuild"
+
+      - id: TESTING_FRAMEWORK
+        required: true
+        description: "Unit test framework."
+        example: "GoogleTest | pytest | Jest"
+
+      - id: MODULE_PREFIX
+        required: true
+        description: "Short prefix for namespace and facade naming."
+        example: "gm"
+        validation: "^[a-zA-Z][a-zA-Z0-9]{0,9}$"
+
+  # ── Naming ───────────────────────────────────────────────────────────────────
+  - group: naming
+    label: "Namespace & Naming Conventions"
+    parameters:
+      - id: NAMESPACE_PATTERN
+        required: true
+        description: "Rule to form module namespace (prose + regex)."
+        example: "'{{MODULE_PREFIX}}' + PascalCase"
+
+      - id: NAMESPACE_EXAMPLE
+        required: false
+        default: "(derived from MODULE_PREFIX + MODULE_NAME)"
+        description: "Concrete namespace example for documentation."
+
+      - id: FACADE_PREFIX
+        required: false
+        default: "(capitalized MODULE_PREFIX)"
+
+      - id: INTERFACE_PREFIX
+        required: false
+        default: "I"
+
+      - id: EXCEPTION_PREFIX
+        required: false
+        default: "E"
+
+      - id: EXCEPTION_BASE_SUFFIX
+        required: false
+        default: "Error"
+
+      - id: PRIVATE_MEMBER_CONVENTION
+        required: false
+        default: "leading underscore (_field)"
+
+      - id: FACTORY_PREFIX
+        required: false
+        default: "create_"
+
+      - id: BOOLEAN_QUERY_PREFIXES
+        required: false
+        default: "is_, has_, can_"
+
+      - id: FUNCTION_NAMING_CONVENTION
+        required: false
+        default: "snake_case"
+
+      - id: CONSTANT_NAMING_CONVENTION
+        required: false
+        default: "SCREAMING_SNAKE_CASE"
+
+  # ── Language & Style ─────────────────────────────────────────────────────────
+  - group: language_style
+    label: "Language & Formatting Style"
+    parameters:
+      - id: LANGUAGE
+        required: true
+        description: "Primary programming language."
+        example: "C++ | Python | TypeScript"
+
+      - id: LANGUAGE_STANDARD
+        required: true
+        description: "Language standard/version."
+        example: "C++17 | ES2022 | Python 3.11"
+
+      - id: LANGUAGE_FILE_EXTENSIONS
+        required: true
+        description: "Comma-separated extensions without dots (for applyTo globs)."
+        example: "cpp,hpp,h | ts,tsx | py"
+
+      - id: INDENT_STYLE
+        required: false
+        default: "tab"
+
+      - id: INDENT_WIDTH
+        required: false
+        default: "4"
+
+      - id: BRACE_STYLE
+        required: false
+        default: "Allman"
+
+      - id: LINE_LENGTH_LIMIT
+        required: false
+        default: "100"
+
+      - id: USE_INCLUDE_GUARDS
+        required: false
+        default: "true"
+        depends_on: "LANGUAGE in [C, C++]"
+
+      - id: HAS_PREPROCESSOR
+        required: false
+        default: "true"
+        depends_on: "LANGUAGE in [C, C++, C#]"
+
+  # ── Documentation ──────────────────────────────────────────────────────────
+  - group: documentation
+    label: "Documentation Conventions"
+    parameters:
+      - id: DOC_COMMENT_STYLE
+        required: false
+        default: "Doxygen"
+        example: "Doxygen | JSDoc | Docstring | JavaDoc"
+
+      - id: API_DOC_SUFFIX
+        required: false
+        default: "_API.md"
+
+  # ── Structure ──────────────────────────────────────────────────────────────
+  - group: structure
+    label: "Module Structure & Dependency Policy"
+    parameters:
+      - id: ALLOW_EXTERNAL_DEPENDENCIES
+        required: false
+        default: "false"
+
+      - id: CROSS_MODULE_POLICY
+        required: false
+        default: "bridges/ adapters only"
+
+  # ── Versioning ─────────────────────────────────────────────────────────────
+  - group: versioning
+    label: "Versioning"
+    parameters:
+      - id: VERSIONING_SCHEME
+        required: false
+        default: "semver"
+
+  # ── Optional GUI ─────────────────────────────────────────────────────────────
+  - group: gui_optional
+    label: "Optional GUI Theming Module"
+    parameters:
+      - id: HAS_GUI_MODULE
+        required: false
+        default: "false"
+
+      - id: GUI_TOOLKIT
+        required: false
+        default: "PySide6"
+        depends_on: "HAS_GUI_MODULE == true"
+
+      - id: THEME_IDS
+        required: false
+        default: "scroll, stone, dark_moon, blood, techno"
+        depends_on: "HAS_GUI_MODULE == true"
+
+derived:
+  - id: MODULE_PREFIX_UPPER
+    computed_from: MODULE_PREFIX
+    rule: "Upper-case MODULE_PREFIX (e.g. gm -> GM)."
+
+invariants:
+  - "Every required: true parameter must be confirmed before instantiation."
+  - "PROJECT_LANGUAGE must be it or en for the entire project — never mixed."
+  - "REQ IDs are global sequential (REQ-0001, …)."
+  - "Derived tokens are computed, never asked directly."
+  - "parameters.yml is not copied to target — only PROJECT_PARAMETERS.md."
+  - "Unresolved {{TOKEN}} must never remain in instantiated files."

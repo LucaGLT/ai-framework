@@ -6,8 +6,7 @@ applyTo: "PROJECT_PARAMETERS.{md,yml,yaml}"
 
 > Apply these instructions whenever `PROJECT_PARAMETERS.md` (or `.yml`) is created or updated,
 > and whenever the `setup-environment` prompt is invoked.
-> Reference parameter registry: `.github/specs/parameters.yml`
-> (or `AI_framework_Developing/specs/parameters.yml` before instantiation).
+> Reference parameter registry: `specs/parameters.yml` (repository root).
 
 ---
 
