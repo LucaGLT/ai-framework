@@ -1,0 +1,25 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# Secrets
+.env
+.env.*
+!.env.template
+*.pem
+*.key
+
+# Generated / temp
+.generated/
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+
+# Cache (never commit)
+.cache/
