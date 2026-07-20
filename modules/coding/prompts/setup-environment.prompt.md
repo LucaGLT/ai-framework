@@ -1,128 +1,142 @@
 ---
 mode: agent
-description: "Interview the Designer to collect project parameters, then instantiate the AI_framework_Developing templates into this project's .github folder."
+description: "Interview for module parameters, then instantiate Code structure and IDE adapters (.cursor/, .github/, AGENTS.md)."
 ---
 
 # Setup Environment
 
-Prepare a new (or extend an existing) project environment by resolving every parameter defined
-in `specs/parameters.yml` (repository root) and instantiating the reusable AI framework templates into the target
-project's `.github/` folder.
+Prepare or extend a module in the target project by resolving parameters from `specs/parameters.yml`
+(meta-framework root) and instantiating the AI framework into `.github/`, `.cursor/`, and `Code/{{AREA}}/{{MODULE}}/`.
 
-Follow `instructions/environment-setup.instructions.md` exactly for interview policy and
-validation rules.
+Follow `instructions/environment-setup.instructions.md` for interview policy and validation.
 
 ---
 
 ## Step 0 — Detect Existing Setup
 
-1. Look for `PROJECT_PARAMETERS.md` (or `.yml`) at the target project root.
-2. If it exists, read it and treat every parameter already resolved there as pre-filled.
-   Only ask about parameters that are missing, or that the user explicitly wants to change.
-3. If it does not exist, this is a first-time setup — ask the full interview.
+1. Read `PROJECT_PARAMETERS.md` at the target project root if present.
+2. Treat resolved parameters as pre-filled; ask only for missing or changed values.
+3. If absent, this is first-time module setup — run the full module interview.
 
 ---
 
 ## Input Required (Interview)
 
-Ask questions grouped exactly as in `specs/parameters.yml` (repository root), in this order. For the full
-question wording, validation patterns and conditional (`depends_on`) rules, follow
-`instructions/environment-setup.instructions.md`.
+Ask parameters grouped as in `specs/parameters.yml`, in order:
 
-1. **Identity** — `PROJECT_NAME`, `CLIENT_NAME`, `MODULE_NAME`, `MODULE_PREFIX`,
-   `TEAM_OR_AUTHOR`.
-2. **Naming** — `NAMESPACE_PATTERN`, `NAMESPACE_EXAMPLE`, `FACADE_PREFIX`, `INTERFACE_PREFIX`,
-   `EXCEPTION_PREFIX`, `EXCEPTION_BASE_SUFFIX`, `PRIVATE_MEMBER_CONVENTION`, `FACTORY_PREFIX`,
-   `BOOLEAN_QUERY_PREFIXES`, `FUNCTION_NAMING_CONVENTION`, `CONSTANT_NAMING_CONVENTION`.
-3. **Language & Style** — `LANGUAGE`, `LANGUAGE_STANDARD`, `LANGUAGE_FILE_EXTENSIONS`,
-   `INDENT_STYLE`, `INDENT_WIDTH`, `BRACE_STYLE`, `LINE_LENGTH_LIMIT`, `USE_INCLUDE_GUARDS`,
-   `HAS_PREPROCESSOR`.
+1. **Area & Module** — `AREA_NAME`, `MODULE_NAME`, `MODULE_PURPOSE`, `MODULE_ROOT_PATH`,
+   `HAS_DEDICATED_REPO`, `BUILD_SYSTEM`, `TESTING_FRAMEWORK`, `MODULE_PREFIX`.
+2. **Naming** — namespace and convention tokens (offer registry defaults).
+3. **Language & Style** — `LANGUAGE`, `LANGUAGE_STANDARD`, `LANGUAGE_FILE_EXTENSIONS`, formatting.
 4. **Documentation** — `DOC_COMMENT_STYLE`, `API_DOC_SUFFIX`.
-5. **Structure** — `MODULE_ROOT_PATH`, `ALLOW_EXTERNAL_DEPENDENCIES`, `CROSS_MODULE_POLICY`.
+5. **Structure** — `ALLOW_EXTERNAL_DEPENDENCIES`, `CROSS_MODULE_POLICY`.
 6. **Versioning** — `VERSIONING_SCHEME`.
-7. **Optional GUI Module** — `HAS_GUI_MODULE`, and only if `true`: `GUI_TOOLKIT`, `THEME_IDS`.
+7. **Optional GUI** — `HAS_GUI_MODULE` and dependents if true.
+8. **Optional C++** — if `LANGUAGE` is C or C++: confirm Doxygen + `.clang-format` (default yes).
 
-Rules while asking:
+Rules:
 
-- Never invent a value for a `required: true` parameter — always ask.
-- For optional parameters, propose the registry `default` and ask for confirmation/override in
-  the same question rather than skipping it silently.
-- Skip any parameter whose `depends_on` condition is false.
-- Compute derived tokens (e.g. `MODULE_PREFIX_UPPER`) automatically — do not ask for them.
+- Never invent values for `required: true` parameters.
+- Show optional defaults and ask for confirmation.
+- Skip parameters whose `depends_on` is false.
+- Derive computed tokens automatically.
 
 ---
 
 ## Step 1 — Summarize and Confirm
 
-Present a single summary table with every resolved parameter (id → value → source: *asked*,
-*default accepted*, or *carried over*). Ask for explicit confirmation before writing or
-generating anything. If the Designer requests changes, update the table and re-confirm.
+Present a table (id → value → source). Get explicit confirmation before writing files.
 
 ---
 
 ## Step 2 — Persist Parameters
 
-Write (or update) `PROJECT_PARAMETERS.md` at the target project root with the full resolved
-parameter table, grouped by section, in human-readable Markdown form.
+Append or update the module section in `PROJECT_PARAMETERS.md` at the project root.
 
 ---
 
-## Step 3 — Instantiate Core Framework
+## Step 3 — Create Module Structure
 
-Copy the following into the target project, substituting every registered parameter token
-(from `specs/parameters.yml` at repository root, derived tokens included) with its resolved value:
+Create under the target project:
 
-- `copilot-instructions.template.md` → `.github/copilot-instructions.md` (strip the leading
-  "TEMPLATE NOTE" comment block — it must not appear in the generated file)
-- `instructions/*.instructions.md` → `.github/instructions/*.instructions.md`
-- `prompts/*.prompt.md` → `.github/prompts/*.prompt.md`, **including this file itself**, so the
-  environment can be re-run or extended later (e.g. to add a module or change a parameter)
-- `specs/*.yml` → `.github/specs/*.yml`, **except `parameters.yml`**, which is the template's
-  own parameter registry and stays in `AI_framework_Developing/` — it is not part of the
-  generated `.github/` output
+```text
+Code/{{AREA_NAME}}/{{MODULE_NAME}}/
+├── README.md
+├── PLAN.md
+├── src/
+└── test/
+```
 
-When substituting tokens nested inside glob brace syntax (e.g. `**/*.{{{LANGUAGE_FILE_EXTENSIONS}}}`),
-replace only the inner `{{TOKEN}}` and preserve the outer single brace on each side, so the
-`applyTo` pattern remains valid glob syntax after substitution.
+Scaffold `PLAN.md` from `ai-framework/templates/` conventions and `specs/plan-schema.yml`.
+
+If `HAS_DEDICATED_REPO` is `true`, note the module in `EXTERNAL_REPOSITORIES.md`.
 
 ---
 
-## Step 4 — Instantiate Optional Modules
+## Step 4 — Instantiate Copilot Adapter (`.github/`)
 
-If `HAS_GUI_MODULE` is `true`, also copy `optional-modules/gui-theming/` contents:
+Copy from meta-framework `adapters/copilot/`, substituting every `{{TOKEN}}`:
 
-- `instructions/gui-style.instructions.md` → `.github/instructions/gui-style.instructions.md`
-- `specs/gui-theme.yml` → `.github/specs/gui-theme.yml`
-- `prompts/new-gui-widget.prompt.md`, `new-gui-theme.prompt.md`, `apply-gui-theme.prompt.md` →
-  `.github/prompts/`
+| Source | Target |
+|--------|--------|
+| `copilot-instructions.template.md` | `.github/copilot-instructions.md` (strip TEMPLATE NOTE) |
+| `prompts/*.prompt.md` | `.github/prompts/` |
+| `instructions/*.instructions.md` | `.github/instructions/` |
+| `specs/*.yml` | `.github/specs/` |
 
-Then append the commented-out GUI section from `copilot-instructions.template.md` (the block
-after `<!-- If {{HAS_GUI_MODULE}} == true ... -->`) into the generated
-`.github/copilot-instructions.md`, uncommented and with tokens resolved.
+Do **not** copy `parameters.yml` — it stays in the meta-framework only.
 
-If `HAS_GUI_MODULE` is `false`, skip this step entirely — do not create GUI-related files.
+When substituting tokens inside glob brace syntax (e.g. `**/*.{{{LANGUAGE_FILE_EXTENSIONS}}}`),
+replace only the inner `{{TOKEN}}` and preserve outer braces.
 
 ---
 
-## Step 5 — Report
+## Step 5 — Instantiate Cursor Adapter (`.cursor/`)
 
-Produce a short report listing:
+Copy from meta-framework `adapters/cursor/`:
 
-- Every file created or updated, with its target path.
-- Any occurrence of a *registered* parameter token (per `specs/parameters.yml`) that could not
-  be resolved (must be zero before declaring success). Incidental prose mentions of the
-  double-curly-brace syntax itself (e.g. an example inside an explanatory sentence) are not
-  violations as long as no registered token id is left unresolved.
-- Whether the optional GUI module was included.
+| Source | Target |
+|--------|--------|
+| `rules/*.mdc` | `.cursor/rules/` |
+| `mcp.json` | `.cursor/mcp.json` |
+
+---
+
+## Step 6 — Instantiate AGENTS.md
+
+If missing or outdated, copy `templates/AGENTS.md.template` → `AGENTS.md` at project root with tokens resolved.
+
+---
+
+## Step 7 — Optional Modules
+
+If `HAS_GUI_MODULE` is `true`, copy from `modules/optional/gui-theming/`:
+
+- `instructions/gui-style.instructions.md` → `.github/instructions/`
+- `specs/gui-theme.yml` → `.github/specs/`
+- `prompts/*.prompt.md` → `.github/prompts/`
+
+Append the GUI section into `.github/copilot-instructions.md` (uncommented, tokens resolved).
+
+If `LANGUAGE` is C or C++, copy from `modules/optional/cpp-tooling/`:
+
+- `templates/.clang-format` → module root `Code/{{AREA}}/{{MODULE}}/.clang-format`
+- `templates/Doxyfile` → module root `Code/{{AREA}}/{{MODULE}}/Doxyfile` (resolve tokens)
+
+Skip optional modules when conditions are false.
+
+---
+
+## Step 8 — Report
+
+List every file created or updated. Confirm zero unresolved registered tokens in generated files.
+State which optional modules were included.
 
 ---
 
 ## Constraints
 
-- Never overwrite an existing `.github` file without explicit confirmation from the Designer.
-- Never leave an unresolved `{{TOKEN}}` in a generated `.github` file — if a value is missing,
-  stop and ask rather than guessing.
-- Do not modify any file outside the target project's root `PROJECT_PARAMETERS.md` and its
-  `.github/` folder during instantiation.
-- Preserve the source templates in `AI_framework_Developing/` unchanged — this is a copy-and-
-  substitute operation, not a move.
+- Never overwrite existing files without explicit confirmation.
+- Never leave unresolved `{{TOKEN}}` in generated output.
+- Do not modify meta-framework source files — copy and substitute only.
+- Preserve `ai-framework/` copy in the target project unchanged unless `#project-setup` already ran.
