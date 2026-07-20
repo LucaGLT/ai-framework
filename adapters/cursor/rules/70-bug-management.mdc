@@ -1,0 +1,18 @@
+---
+description: Bug management in Test areas
+alwaysApply: false
+globs:
+  - "Test/**/bugs/**"
+---
+
+# Bug Management
+
+When creating or updating bugs:
+
+- Use `ai-framework/templates/bug.template.yaml`
+- ID format: BUG-XXXX in `Test/{{AREA}}/bugs/`
+- Include steps to reproduce, expected vs actual
+- Link to REQ and TC when applicable
+- Add failing test before fix when feasible
+
+See `ai-framework/agents/bug-manager.md` and `workflows/bug-fix.workflow.md`.

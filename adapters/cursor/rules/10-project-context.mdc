@@ -1,0 +1,18 @@
+---
+description: Project context from PROJECT_PARAMETERS
+alwaysApply: true
+---
+
+# Project Context
+
+Read `PROJECT_PARAMETERS.md` at the repository root before any task.
+
+Respect:
+
+- `PROJECT_LANGUAGE` — all project artifacts in this language only (it or en, never mixed)
+- `CLIENT_NAME` — default Internal
+- `VALIDATION_GATE_ENABLED` and `VALIDATION_THRESHOLD`
+- `MILESTONE_LIST` when linking REQ to milestones
+- Module parameters for the area/module being edited
+
+Target structure: Design / Code / Test with areas of intervention.

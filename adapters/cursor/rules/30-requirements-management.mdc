@@ -1,0 +1,22 @@
+---
+description: Requirements management in Design areas
+alwaysApply: false
+globs:
+  - "Design/**/REQUIREMENTS.md"
+  - "Design/_index.md"
+---
+
+# Requirements Management
+
+When creating or modifying requirements:
+
+- Use global IDs: REQ-0001, REQ-0002, …
+- Update `Design/_index.md` for each new or changed REQ
+- **Mandatory fields:** Type, MoSCoW, Priority
+- Include acceptance criteria (testable)
+- Primary format: Markdown in `Design/areas/{{AREA}}/REQUIREMENTS.md`
+- YAML template: `ai-framework/templates/requirement.template.yaml` for export/automation
+
+Do not implement vague requirements without structuring them first.
+
+Do not mix languages within the project.

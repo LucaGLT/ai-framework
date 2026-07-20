@@ -1,0 +1,17 @@
+---
+description: Testing rules for test directories
+alwaysApply: false
+globs:
+  - "**/test/**"
+  - "Test/**"
+---
+
+# Testing
+
+Follow `ai-framework/standards/testing-rules.md`.
+
+- Unit tests: `Code/{{AREA}}/{{MODULE}}/test/`
+- Test cases: `Test/{{AREA}}/test-cases/TC-XXXX`
+- Record test commands in validation report evidence
+
+Add or update tests for behaviour changes. Do not mark tasks complete with failing required tests.

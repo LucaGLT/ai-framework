@@ -1,0 +1,22 @@
+---
+description: Validation loop before task completion
+alwaysApply: true
+---
+
+# Validation Loop
+
+After implementation, produce a validation report using:
+
+- `ai-framework/templates/validation-report.template.json`
+- `ai-framework/validators/validation-rubric.yaml`
+
+Score categories: requirement_coverage, correctness, maintainability, test_coverage,
+documentation_quality, error_handling, architectural_consistency, security_privacy_impact,
+regression_risk.
+
+If `VALIDATION_GATE_ENABLED=true` in PROJECT_PARAMETERS and score is below threshold,
+do not declare completion. Instead: identify failures → fix plan → corrections → re-test → new report.
+
+If gate is disabled, still produce report for visibility.
+
+Store reports in `Test/{{AREA}}/reports/`.

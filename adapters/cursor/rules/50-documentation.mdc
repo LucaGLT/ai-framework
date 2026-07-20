@@ -1,0 +1,26 @@
+---
+description: Documentation requirements for source files
+alwaysApply: false
+globs:
+  - "**/*.c"
+  - "**/*.cpp"
+  - "**/*.h"
+  - "**/*.hpp"
+  - "**/*.py"
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
+---
+
+# Documentation
+
+Follow `ai-framework/standards/documentation-rules.md` and `{{DOC_COMMENT_STYLE}}` from PROJECT_PARAMETERS.
+
+- Doxygen for C/C++ when DOC_COMMENT_STYLE=Doxygen
+- JSDoc for TypeScript/JavaScript
+- Docstrings for Python
+
+Public APIs must be documented. Use project language from PROJECT_PARAMETERS.
+
+Do not add noisy comments that restate obvious code.

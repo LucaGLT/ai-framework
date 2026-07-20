@@ -1,0 +1,29 @@
+---
+description: Load and enforce the repository AI Development Framework
+alwaysApply: true
+---
+
+# Load Framework Rule
+
+Before performing any substantial task, read:
+
+- `AGENTS.md`
+- `PROJECT_PARAMETERS.md`
+- `ai-framework/README.md`
+- `ai-framework/core/methodology.md`
+- the relevant workflow in `ai-framework/workflows/`
+- the relevant role file in `ai-framework/agents/`
+- the relevant standards in `ai-framework/standards/`
+- the relevant templates in `ai-framework/templates/`
+
+Do not rely only on the user prompt.
+
+If the task is ambiguous, make a reasonable assumption, document it, and continue.
+
+For implementation tasks, always produce:
+
+1. Plan
+2. Impacted files
+3. Execution steps
+4. Tests/checks to run
+5. Validation report (when applicable)

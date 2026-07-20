@@ -1,0 +1,25 @@
+---
+description: Project coding standards
+alwaysApply: true
+---
+
+# Coding Standards
+
+Before editing code, read:
+
+- `ai-framework/standards/coding-rules.md`
+- `ai-framework/standards/architecture-rules.md`
+- `ai-framework/standards/testing-rules.md`
+- Module specs in `.github/specs/` or `ai-framework/modules/coding/specs/` when applicable
+
+General rules:
+
+- Prefer simple, maintainable code
+- Avoid unnecessary abstractions
+- Keep functions focused
+- Preserve existing public APIs unless explicitly instructed
+- Handle errors explicitly
+- Add tests for behaviour, not implementation details
+- Update documentation when behaviour changes
+
+Module path: `Code/{{AREA_NAME}}/{{MODULE_NAME}}/`

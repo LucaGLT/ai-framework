@@ -1,0 +1,20 @@
+---
+description: Definition of Done enforcement
+alwaysApply: true
+---
+
+# Definition of Done
+
+See `ai-framework/core/quality-gates.md`.
+
+Do not mark a task complete unless:
+
+- REQ acceptance criteria satisfied
+- REQ has Type, MoSCoW, Priority
+- Required tests pass
+- Documentation updated for public API changes
+- Validation gate satisfied when enabled
+- Bugs recorded in required format
+- Final report in PROJECT_LANGUAGE
+
+Produce a final report explaining what changed and why.

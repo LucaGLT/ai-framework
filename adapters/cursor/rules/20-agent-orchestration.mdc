@@ -1,0 +1,23 @@
+---
+description: Multi-agent workflow orchestration
+alwaysApply: true
+---
+
+# Agent Orchestration
+
+For non-trivial work, simulate these roles (see `ai-framework/agents/`):
+
+1. Planner
+2. Architect
+3. Developer
+4. Tester
+5. Reviewer
+6. Validator
+
+Do not skip directly to implementation unless the task is trivial.
+
+Default lifecycle:
+
+Requirement intake → analysis → plan → implementation → tests → validation → fixes → final report
+
+If validation fails (when gate enabled), return to Developer phase.
