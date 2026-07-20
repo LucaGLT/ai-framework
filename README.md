@@ -18,18 +18,20 @@ Specifica completa: [`_RAW/ai-framework-guide_1.0.md`](_RAW/ai-framework-guide_1
 ├── modules/
 │   ├── design/           ← Requisiti, meeting, review
 │   ├── coding/           ← Plan, review, docs, setup modulo
-│   ├── test/             ← (Fase 3) bug, TC, validation
-│   └── optional/         ← Plug-in (gui-theming, C++ tooling, …)
-├── agents/               ← Ruoli agente (Fase 1)
-├── templates/            ← Template artefatti globali (Fase 1)
-├── workflows/            ← Workflow end-to-end (Fase 1)
-├── standards/            ← Standard tecnici (Fase 1)
-├── validators/           ← Rubric e scoring (Fase 1)
+│   ├── test/             ← TC, bug, validation report
+│   └── optional/         ← gui-theming, cpp-tooling
+├── agents/               ← Ruoli agente
+├── templates/            ← Template artefatti globali
+├── workflows/            ← Workflow end-to-end
+├── standards/            ← Standard tecnici
+├── validators/           ← Rubric e scoring
 ├── adapters/
-│   ├── cursor/           ← .mdc rules, mcp.json (Fase 2)
-│   └── copilot/          ← Template .github (Fase 2)
-├── docs/                 ← Documentazione utente
-└── examples/             ← Esempi di istanziazione
+│   ├── cursor/           ← .mdc rules, mcp.json
+│   ├── copilot/          ← Template .github
+│   └── task-sync/        ← Stub integrazione issue tracker
+├── scripts/              ← Validazione artefatti
+├── docs/                 ← pilot-guide, automation
+└── examples/             ← minimal-project skeleton
 ```
 
 ## Stato implementazione
@@ -38,15 +40,18 @@ Specifica completa: [`_RAW/ai-framework-guide_1.0.md`](_RAW/ai-framework-guide_1
 |------|-----------|-------|
 | 0 | Fondamenta: core + modules design/coding | Completata |
 | 1 | Template, agents, validators, parameters unificato | Completata |
-| 2 | Adattatori Cursor + Copilot | Pianificata |
-| 3 | Modulo test (prompt operativi) | Pianificata |
+| 2 | Adattatori Cursor + Copilot, setup prompts, optional C++ | Completata |
+| 3 | Modulo test + workflow end-to-end | Completata |
+| 4 | Esempio minimal + pilot-guide | Completata |
+| 5 | Script validazione + task-sync stub | Completata |
 
 ## Quickstart (progetto target)
 
-1. Istanziare il framework nel repository del progetto software.
+1. Copiare il framework nel repository del progetto software (vedi `docs/pilot-guide.md`).
 2. Eseguire `#project-setup` (Design).
 3. Eseguire `#setup-environment` per ogni modulo (Code).
-4. Seguire il lifecycle in `core/lifecycle.md`.
+4. Seguire `workflows/end-to-end.workflow.md` o `core/lifecycle.md`.
+5. Validare con `scripts/validate-artifacts.ps1`.
 
 ## Licenza
 
