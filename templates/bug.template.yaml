@@ -1,0 +1,30 @@
+id: BUG-0001
+title: ""
+status: open           # open | in_progress | resolved | wont_fix
+severity: medium
+priority: medium
+
+area: "{{AREA_NAME}}"
+
+environment:
+  os: ""
+  runtime: ""
+  version: ""
+
+description: ""
+
+steps_to_reproduce:
+  - ""
+
+expected_result: ""
+actual_result: ""
+suspected_cause: ""
+
+linked_requirements: []
+linked_test_cases: []
+impacted_files: []
+
+regression: unknown    # yes | no | unknown
+proposed_fix: ""
+test_case_required: true
+validation_notes: ""

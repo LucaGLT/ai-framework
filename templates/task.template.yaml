@@ -1,0 +1,31 @@
+id: TASK-0001
+title: ""
+status: todo           # todo | in_progress | done | blocked
+priority: medium
+
+area: "{{AREA_NAME}}"
+module: "{{MODULE_NAME}}"    # optional
+
+linked_requirements:
+  - REQ-0001
+
+description: ""
+impacted_files: []
+
+implementation_steps:
+  - ""
+
+tests_to_add_or_update:
+  - ""
+
+validation_checks:
+  - ""
+
+definition_of_done:
+  - "Requirement coverage verified"
+  - "Tests added or updated"
+  - "Relevant checks pass"
+  - "Documentation updated"
+  - "Validation score above threshold"
+
+notes: ""

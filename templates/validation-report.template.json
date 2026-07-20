@@ -1,0 +1,30 @@
+{
+  "task_id": "",
+  "area": "",
+  "module": "",
+  "linked_requirements": [],
+  "overall_score": 0,
+  "threshold": 85,
+  "passed": false,
+  "validation_gate_enabled": false,
+  "scores": {
+    "requirement_coverage": 0,
+    "correctness": 0,
+    "maintainability": 0,
+    "test_coverage": 0,
+    "documentation_quality": 0,
+    "error_handling": 0,
+    "architectural_consistency": 0,
+    "security_privacy_impact": 0,
+    "regression_risk": 0
+  },
+  "blocking_issues": [],
+  "non_blocking_issues": [],
+  "fix_plan": [],
+  "evidence": {
+    "tests_run": [],
+    "files_reviewed": [],
+    "commands_executed": []
+  },
+  "final_recommendation": ""
+}

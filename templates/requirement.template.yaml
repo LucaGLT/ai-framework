@@ -1,0 +1,31 @@
+id: REQ-0000
+title: ""
+status: draft          # draft | approved | implemented | verified
+priority: medium       # low | medium | high | critical
+type: functional       # functional | safety | security | performance
+
+description: ""
+business_goal: ""
+
+acceptance_criteria:
+  - id: AC-001
+    description: ""
+    testable: true
+
+classification:
+  area: "{{AREA_NAME}}"
+  level: ""            # Alto Livello | Architetturale | Basso Livello | Implementativo
+  type: ""             # REQUIRED: functional | safety | security | performance
+  moscow: ""           # REQUIRED: Must | Should | Could | Won't
+  priority: ""         # REQUIRED: Alta | Media | Bassa
+  milestone: ""        # optional — from {{MILESTONE_LIST}}
+
+constraints: []
+dependencies: []
+out_of_scope: []
+assumptions: []
+risks: []
+test_notes: ""
+
+created_by: ai-framework
+last_updated: ""

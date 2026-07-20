@@ -1,0 +1,23 @@
+id: TC-0001
+title: ""
+status: draft          # draft | ready | passed | failed | blocked
+priority: medium
+
+area: "{{AREA_NAME}}"
+module: "{{MODULE_NAME}}"    # optional
+
+linked_requirements:
+  - REQ-0001
+
+description: ""
+preconditions:
+  - ""
+steps:
+  - step: 1
+    action: ""
+    expected: ""
+test_data: ""
+automation: manual     # manual | automated | partial
+automated_test_path: ""      # path if automated
+
+notes: ""
