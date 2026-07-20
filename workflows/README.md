@@ -9,5 +9,6 @@ End-to-end and scenario-specific processes.
 | Refactor | `refactor.workflow.md` | Structure change, same behaviour |
 | Release check | `release-check.workflow.md` | Pre-release validation |
 | Documentation | `documentation.workflow.md` | Doc update pass |
+| End-to-end | `end-to-end.workflow.md` | Full REQ → validation cycle |
 
 See `core/lifecycle.md` for the master flow.

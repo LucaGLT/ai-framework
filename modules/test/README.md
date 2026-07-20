@@ -1,10 +1,27 @@
-# Test Module (Phase 3)
+# Test Module
 
-Placeholder for test-specific prompts and specs:
+Prompts and specs for the Test layer (`Test/{{AREA}}/`).
 
-- `#test-case-create`
-- `#bug-create`
-- `#validation-report`
+## Prompts
 
-Global templates already in `templates/` (bug, test-case, validation-report).
-Workflows: `workflows/bug-fix.workflow.md`.
+| Prompt | File | Purpose |
+|--------|------|---------|
+| `#test-case-create` | `prompts/test-case-create.prompt.md` | Create TC-XXXX |
+| `#bug-create` | `prompts/bug-create.prompt.md` | Create BUG-XXXX |
+| `#validation-report` | `prompts/validation-report.prompt.md` | Quality score JSON |
+
+## Templates
+
+Global templates in `ai-framework/templates/`:
+
+- `test-case.template.yaml`
+- `bug.template.yaml`
+- `validation-report.template.json`
+
+## Rubric
+
+Scoring: `validators/validation-rubric.yaml`
+
+## Workflow
+
+End-to-end cycle: `workflows/end-to-end.workflow.md`
