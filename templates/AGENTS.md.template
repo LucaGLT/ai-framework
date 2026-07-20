@@ -1,0 +1,65 @@
+# AGENTS.md
+
+## Purpose
+
+This repository uses an AI Development Framework. Core logic lives in `ai-framework/`.
+IDE adapters: `.cursor/rules/` (Cursor) and `.github/` (Copilot).
+
+Every AI agent must read this file before planning, editing, testing, validating, or documenting.
+
+**Project language:** {{PROJECT_LANGUAGE}} — all project artifacts in this language only (never mixed).
+
+## Mandatory startup sequence
+
+1. Read `PROJECT_PARAMETERS.md`
+2. Read `ai-framework/README.md`
+3. Read `ai-framework/core/methodology.md`
+4. Read the relevant workflow from `ai-framework/workflows/`
+5. Read the relevant agent role from `ai-framework/agents/`
+6. Read applicable standards from `ai-framework/standards/`
+7. Read applicable templates from `ai-framework/templates/`
+8. Produce a concise execution plan before editing files
+
+## Project structure
+
+```text
+Design/   — REQ, decisions, architecture (areas/{{AREA_NAME}}/)
+Code/     — Modules ({{AREA_NAME}}/{{MODULE_NAME}}/)
+Test/     — TC, bugs, reports, traceability
+```
+
+## Mandatory lifecycle
+
+1. Understand the request
+2. Identify impacted files
+3. Create or update structured requirements in `Design/`
+4. Produce task plan (`TASKS.md` or `PLAN.md`)
+5. Implement incrementally in `Code/`
+6. Add or update tests in `Code/.../test/` and `Test/`
+7. Run available checks
+8. Produce validation report when applicable
+9. Fix issues if validation gate enabled and score below threshold
+10. Stop only when Definition of Done is satisfied
+
+## Quality gate
+
+Do not mark a task complete unless:
+
+- linked REQ acceptance criteria are satisfied
+- REQ has Type, MoSCoW, Priority populated
+- required tests pass
+- public API documented per `{{DOC_COMMENT_STYLE}}`
+- validation score ≥ {{VALIDATION_THRESHOLD}} when `VALIDATION_GATE_ENABLED=true`
+- known bugs recorded as BUG-XXXX
+- final report explains what changed and why
+
+## Key prompts
+
+| Prompt | Purpose |
+|--------|---------|
+| `#project-setup` | Initial Design structure |
+| `#setup-environment` | Module + IDE adapters |
+| `#req-create` | Extract requirements |
+| `#review-code` | Structured review |
+| `#bug-create` | Bug report |
+| `#validation-report` | Quality score |

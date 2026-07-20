@@ -4,6 +4,7 @@ Artifact templates for target projects. Copy or generate from these when creatin
 
 | Template | Use |
 |----------|-----|
+| `AGENTS.md.template` | Entry point for AI agents on target project |
 | `requirement.template.yaml` | Automation / validation export for REQ |
 | `task.template.yaml` | TASK-XXXX in TASKS.md or PLAN.md |
 | `bug.template.yaml` | BUG-XXXX in Test/{{AREA}}/bugs/ |
