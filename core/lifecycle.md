@@ -5,21 +5,21 @@
 ```text
 _RAW/ (unstructured input)
     ↓  #meeting-digest
-Design/meetings/
+01_Design/meetings/
     ↓  #req-create
-Design/areas/{{AREA}}/REQUIREMENTS.md  (REQ-XXXX, global IDs)
+01_Design/areas/{{AREA}}/REQUIREMENTS.md  (REQ-XXXX, global IDs)
     ↓  #project-setup / #setup-environment
-Code/{{AREA}}/{{MODULE}}/PLAN.md + TASKS
+02_Code/{{AREA}}/{{MODULE}}/PLAN.md + TASKS
     ↓  #new-component / implementation
-Code/{{AREA}}/{{MODULE}}/src/
+02_Code/{{AREA}}/{{MODULE}}/src/
     ↓  #review-code
 REVIEW.md
     ↓  #test-case-create / tests
-Test/{{AREA}}/test-cases/TC-XXXX
+03_Test/{{AREA}}/test-cases/TC-XXXX
     ↓  #bug-create (if needed)
-Test/{{AREA}}/bugs/BUG-XXXX
+03_Test/{{AREA}}/bugs/BUG-XXXX
     ↓  #validation-report
-Test/{{AREA}}/reports/validation-report.json
+03_Test/{{AREA}}/reports/validation-report.json
     ↓  score ≥ {{VALIDATION_THRESHOLD}} (mandatory from meta-framework Phase 2)
 Definition of Done
 ```

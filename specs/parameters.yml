@@ -106,7 +106,7 @@ groups:
 
       - id: MODULE_ROOT_PATH
         required: false
-        default: "Code/{{AREA_NAME}}/{{MODULE_NAME}}/"
+        default: "02_Code/{{AREA_NAME}}/{{MODULE_NAME}}/"
         description: "Module root path on target project."
 
       - id: HAS_DEDICATED_REPO

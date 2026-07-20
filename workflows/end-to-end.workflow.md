@@ -14,9 +14,9 @@ Complete lifecycle for a small deliverable on the target project. Use with `core
 
 **Prompt:** `#req-create` or manual edit
 
-1. Add `REQ-XXXX` to `Design/areas/{{AREA}}/REQUIREMENTS.md`
+1. Add `REQ-XXXX` to `01_Design/areas/{{AREA}}/REQUIREMENTS.md`
 2. Mandatory fields: Type, MoSCoW, Priority, acceptance criteria
-3. Update `Design/_index.md`
+3. Update `01_Design/_index.md`
 
 **Gate:** REQ approved or explicitly marked in-progress for pilot
 
@@ -26,8 +26,8 @@ Complete lifecycle for a small deliverable on the target project. Use with `core
 
 **Prompt:** `#task-create` (design) or `#update-plan` (code)
 
-1. Create `TASK-XXXX` in `Design/areas/{{AREA}}/TASKS.md` linked to REQ
-2. Update `Code/{{AREA}}/{{MODULE}}/PLAN.md` with scope and file list
+1. Create `TASK-XXXX` in `01_Design/areas/{{AREA}}/TASKS.md` linked to REQ
+2. Update `02_Code/{{AREA}}/{{MODULE}}/PLAN.md` with scope and file list
 
 ---
 
@@ -35,8 +35,8 @@ Complete lifecycle for a small deliverable on the target project. Use with `core
 
 **Prompts:** `#new-component`, `#generate-docs` as needed
 
-1. Implement in `Code/{{AREA}}/{{MODULE}}/src/`
-2. Unit tests in `Code/.../test/`
+1. Implement in `01_Code/{{AREA}}/{{MODULE}}/src/`
+2. Unit tests in `01_Code/.../test/`
 3. Doc comments per `DOC_COMMENT_STYLE`
 
 ---
@@ -56,7 +56,7 @@ Complete lifecycle for a small deliverable on the target project. Use with `core
 **Prompt:** `#validation-report`
 
 1. Score against `validators/validation-rubric.yaml`
-2. Write JSON to `Test/{{AREA}}/reports/`
+2. Write JSON to `03_Test/{{AREA}}/reports/`
 3. If `VALIDATION_GATE_ENABLED=true` and score < threshold → fix loop
 
 ---

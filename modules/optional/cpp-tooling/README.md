@@ -16,8 +16,8 @@ Provides standard C/C++ developer tooling templates: `.clang-format` and `Doxyfi
 
 ## Integration (by `#setup-environment`)
 
-1. Copy `templates/.clang-format` → `Code/{{AREA}}/{{MODULE}}/.clang-format`
-2. Copy `templates/Doxyfile` → `Code/{{AREA}}/{{MODULE}}/Doxyfile` (resolve `{{PROJECT_NAME}}`, `{{MODULE_NAME}}`)
+1. Copy `templates/.clang-format` → `02_Code/{{AREA}}/{{MODULE}}/.clang-format`
+2. Copy `templates/Doxyfile` → `02_Code/{{AREA}}/{{MODULE}}/Doxyfile` (resolve `{{PROJECT_NAME}}`, `{{MODULE_NAME}}`)
 3. Ensure `USE_INCLUDE_GUARDS=true` and `DOC_COMMENT_STYLE=Doxygen` in module parameters
 
 ## Parameters Used

@@ -23,9 +23,9 @@ Every AI agent must read this file before planning, editing, testing, validating
 ## Project structure
 
 ```text
-Design/   — REQ, decisions, architecture (areas/{{AREA_NAME}}/)
-Code/     — Modules ({{AREA_NAME}}/{{MODULE_NAME}}/)
-Test/     — TC, bugs, reports, traceability
+01_Design/   — REQ, decisions, architecture (areas/{{AREA_NAME}}/)
+02_Code/     — Modules ({{AREA_NAME}}/{{MODULE_NAME}}/)
+03_Test/     — TC, bugs, reports, traceability
 ```
 
 ## Mandatory lifecycle
@@ -34,8 +34,8 @@ Test/     — TC, bugs, reports, traceability
 2. Identify impacted files
 3. Create or update structured requirements in `Design/`
 4. Produce task plan (`TASKS.md` or `PLAN.md`)
-5. Implement incrementally in `Code/`
-6. Add or update tests in `Code/.../test/` and `Test/`
+5. Implement incrementally in `02_Code/`
+6. Add or update tests in `02_Code/.../test/` and `03_Test/`
 7. Run available checks
 8. Produce validation report when applicable
 9. Fix issues if validation gate enabled and score below threshold

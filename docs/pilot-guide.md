@@ -30,7 +30,7 @@ In Cursor (or Copilot with `.github/` prompts):
 
 1. Execute `#project-setup` from `modules/design/prompts/project-setup.prompt.md`
 2. Verify `PROJECT_PARAMETERS.md` has no unresolved `{{...}}`
-3. Confirm `Design/`, `Code/`, `Test/` trees exist
+3. Confirm `01_Design/`, `02_Code/`, `03_Test/` trees exist
 
 ## 4. Run `#setup-environment`
 
@@ -38,7 +38,7 @@ For each code module:
 
 1. Execute `#setup-environment`
 2. Verify `.cursor/rules/` and `.github/` are populated
-3. Confirm `Code/{{AREA}}/{{MODULE}}/` scaffold
+3. Confirm `02_Code/{{AREA}}/{{MODULE}}/` scaffold
 
 ## 5. First operational cycle
 

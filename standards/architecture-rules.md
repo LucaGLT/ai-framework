@@ -5,7 +5,7 @@
 Target projects use **Design / Code / Test** × **Areas of intervention**.
 
 - Cross-area dependencies: document in DEC or REQ
-- Module path: `Code/{{AREA_NAME}}/{{MODULE_NAME}}/`
+- Module path: `02_Code/{{AREA_NAME}}/{{MODULE_NAME}}/`
 - Optional dedicated repo: `EXTERNAL_REPOSITORIES.md` entry only
 
 ## Design principles

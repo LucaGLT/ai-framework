@@ -8,7 +8,7 @@ Apply when `LANGUAGE` is C or C++ and the cpp-tooling optional module is enabled
 
 ## Formatting
 
-- Use `.clang-format` at the module root (`Code/{{AREA_NAME}}/{{MODULE_NAME}}/.clang-format`).
+- Use `.clang-format` at the module root (`02_Code/{{AREA_NAME}}/{{MODULE_NAME}}/.clang-format`).
 - Run `clang-format -i` on changed source files before commit when the tool is available.
 - Match `{{BRACE_STYLE}}` and `{{INDENT_WIDTH}}` from `PROJECT_PARAMETERS.md`.
 

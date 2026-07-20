@@ -4,9 +4,9 @@
 
 | Level | Location |
 |-------|----------|
-| Unit | `Code/{{AREA}}/{{MODULE}}/test/` |
-| Integration | `Test/{{AREA}}/integration/` |
-| System / E2E | `Test/{{AREA}}/test-cases/` |
+| Unit | `02_Code/{{AREA}}/{{MODULE}}/test/` |
+| Integration | `03_Test/{{AREA}}/integration/` |
+| System / E2E | `03_Test/{{AREA}}/test-cases/` |
 
 ## Requirements
 

@@ -17,7 +17,7 @@ minimal-project/
 │   ├── prompts/
 │   ├── instructions/
 │   └── specs/
-├── Design/
+├── 01_Design/
 │   ├── _index.md
 │   ├── meetings/
 │   └── areas/
@@ -26,14 +26,14 @@ minimal-project/
 │           ├── TASKS.md
 │           ├── architecture/
 │           └── decisions/
-├── Code/
+├── 02_Code/
 │   └── backend/
 │       └── auth-service/
 │           ├── README.md
 │           ├── PLAN.md
 │           ├── src/
 │           └── test/
-└── Test/
+└── 03_Test/
     └── backend/
         ├── strategy/
         ├── test-cases/

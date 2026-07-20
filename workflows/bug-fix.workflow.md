@@ -16,7 +16,7 @@
 
 ## Phase 4 — Fix
 
-- Minimal safe fix in `Code/`
+- Minimal safe fix in `02_Code/`
 - Preserve unrelated behaviour
 
 ## Phase 5 — Validation

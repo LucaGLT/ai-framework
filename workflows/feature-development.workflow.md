@@ -15,18 +15,18 @@
 
 ## Phase 3 — Architecture review
 
-- Check consistency with `Design/areas/{{AREA}}/architecture/`
+- Check consistency with `01_Design/areas/{{AREA}}/architecture/`
 - Create DEC-XXXX if needed
 
 ## Phase 4 — Implementation
 
-- Incremental changes in `Code/{{AREA}}/{{MODULE}}/src/`
+- Incremental changes in `02_Code/{{AREA}}/{{MODULE}}/src/`
 - Update documentation
 
 ## Phase 5 — Testing
 
 - Unit tests in module `test/`
-- TC-XXXX in `Test/{{AREA}}/test-cases/` when needed
+- TC-XXXX in `03_Test/{{AREA}}/test-cases/` when needed
 
 ## Phase 6 — Validation
 
